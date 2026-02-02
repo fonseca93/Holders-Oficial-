@@ -1,42 +1,739 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Holders | Official Website</title>
+    <title>Holders - Grupo Musical</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Arial', sans-serif; background-color: #000; color: white; margin: 0; padding: 0; text-align: center; }
-        header { 
-            padding: 120px 20px; 
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('20251227_113454.jpg'); 
-            background-size: cover; background-position: center; border-bottom: 3px solid #f1c40f;
+        :root {
+            --primary: #ff4d8d;
+            --secondary: #6a11cb;
+            --dark: #121212;
+            --light-dark: #1e1e1e;
+            --text: #ffffff;
+            --text-secondary: #b3b3b3;
+            --accent: #00d4ff;
         }
-        h1 { font-size: 3rem; color: #f1c40f; text-transform: uppercase; letter-spacing: 5px; margin: 0; }
-        .video-container { margin: 30px auto; max-width: 500px; border-radius: 15px; overflow: hidden; border: 2px solid #f1c40f; background: #111; }
-        .social-links a { color: #f1c40f; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 1.2rem; }
-        section { padding: 50px 20px; border-bottom: 1px solid #222; }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(to right, var(--secondary), var(--primary));
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-img {
+            height: 60px;
+            width: 60px;
+            background: linear-gradient(45deg, var(--accent), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            color: var(--text-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Members Section */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .member-card {
+            background-color: var(--light-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .member-img {
+            height: 250px;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: var(--primary);
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-name {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        /* About Section */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 18px;
+            background-color: var(--light-dark);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* Music Section */
+        .music-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .tab-btn {
+            background-color: var(--light-dark);
+            color: var(--text);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .music-card {
+            background-color: var(--light-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .music-cover {
+            height: 200px;
+            width: 100%;
+            background-color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
+        }
+        
+        .music-info {
+            padding: 20px;
+        }
+        
+        .music-title {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        
+        .music-year {
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+        }
+        
+        /* Social Section */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-card {
+            background-color: var(--light-dark);
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+        
+        .social-icon.youtube {
+            color: #FF0000;
+        }
+        
+        .social-icon.facebook {
+            color: #1877F2;
+        }
+        
+        .social-icon.tiktok {
+            color: #000000;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light-dark);
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .section-title {
+                font-size: 30px;
+            }
+            
+            .music-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 80%;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
     <header>
-        <h1>HOLDERS</h1>
-        <p>A Nova Era da Música</p>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-img">H</div>
+                <div class="logo-text">Holders Oficial</div>
+            </div>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul>
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#members">Membros</a></li>
+                    <li><a href="#about">Quem Somos</a></li>
+                    <li><a href="#music">Música</a></li>
+                    <li><a href="#social">Redes Sociais</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section>
-        <h2>Ouça: Heart (2025)</h2>
-        <div class="video-container">
-            <iframe width="100%" height="315" src="https://www.youtube.com/embed/TmXAtGevpX0" frameborder="0" allowfullscreen></iframe>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>BEM-VINDO AO MUNDO HOLDERS</h1>
+            <p>O grupo musical que está revolucionando o trap angolano com versatilidade e autenticidade. Fundado em 2022, trazemos uma nova energia e uma visão única para a cena musical.</p>
+            <a href="#music" class="btn">OUÇA NOSSA MÚSICA</a>
         </div>
     </section>
 
-    <section>
-        <h2>Redes Sociais</h2>
-        <div class="social-links">
-            <a href="https://www.facebook.com/profile.php?id=61585894762841" target="_blank">Facebook</a>
-            <a href="https://www.tiktok.com/@HoldersOficial" target="_blank">TikTok</a>
-            <a href="https://www.youtube.com/@RoddyBeizzy" target="_blank">YouTube</a>
+    <!-- Members Section -->
+    <section class="section" id="members">
+        <div class="container">
+            <h2 class="section-title">MEMBROS DO GRUPO</h2>
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Carlos Under(CEO)</h3>
+                        <div class="member-role">Vocalista & Compositor</div>
+                        <p>Voz marcante e letras profundas que conectam com a realidade da juventude, dono dos coros.</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Roddy Beizzy</h3>
+                        <div class="member-role">Produtor & Vocalista</div>
+                        <p>Mente criativa por trás dos flows que definem o som Holders.</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Denny</h3>
+                        <div class="member-role">Vocalista & Performance</div>
+                        <p>Energia contagiante no palco e flow único que eleva cada música.</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Grauby Fantástico</h3>
+                        <div class="member-role">Vocalista & Letrista</div>
+                        <p>Mestre das rimas e narrativas que contam histórias cativantes.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <h2 class="section-title">QUEM SOMOS NÓS</h2>
+            <div class="about-content">
+                <p>Nós somos jovens que catam trap, fundamos este grupo no ano de 2022 com a missão de trazer uma versão diferente do trap angolano. Acreditamos que a versatilidade mora aqui, e a autenticidade é nosso principal valor.</p>
+                <p>Nossa jornada começou nas ruas de Moxico, onde unimos nossas histórias, talentos e paixão pela música para criar algo único. Combinamos influências do trap internacional com a essência angolana, resultando em um som autêntico que ressoa com a nova geração.</p>
+                <p>Com letras que falam sobre realidade, superação e ambição, buscamos não apenas entreter, mas também inspirar. Cada música é uma peça de nossa história coletiva, uma expressão de quem somos e de onde viemos.</p>
+                <p>Estamos comprometidos em elevar o padrão do trap angolano e mostrar ao mundo a força criativa que emana de Angola. Holders não é apenas um grupo musical, é um movimento cultural.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section class="section" id="music">
+        <div class="container">
+            <h2 class="section-title">NOSSA MÚSICA</h2>
+            
+            <div class="music-tabs">
+                <button class="tab-btn active" data-tab="new">Novos Lançamentos</button>
+                <button class="tab-btn" data-tab="old">Antigos Lançamentos</button>
+                <button class="tab-btn" data-tab="album">Álbuns</button>
+            </div>
+            
+            <div class="tab-content active" id="new-content">
+                <div class="music-grid">
+                    <div class="music-card">
+                        <div class="music-cover">
+                            <i class="fas fa-play-circle"></i>
+                        </div>
+                        <div class="music-info">
+                            <h3 class="music-title">Holders - Heart [Música Oficial 2025]</h3>
+                            <div class="music-year">2025</div>
+                            <p>Nosso mais recente single, uma balada de trap emocional que explora as complexidades do amor e da paixão.</p>
+                            <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">OUVIR AGORA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="old-content">
+                <div class="music-grid">
+                    <div class="music-card">
+                        <div class="music-cover">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <div class="music-info">
+                            <h3 class="music-title">Coleção Completa (2022-2024)</h3>
+                            <div class="music-year">2022-2024</div>
+                            <p>Todas as nossas músicas lançadas desde a fundação do grupo. Uma jornada musical através da nossa evolução.</p>
+                            <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">ACESSAR LINKS</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="album-content">
+                <div class="music-grid">
+                    <div class="music-card">
+                        <div class="music-cover">
+                            <i class="fas fa-compact-disc"></i>
+                        </div>
+                        <div class="music-info">
+                            <h3 class="music-title">EP MÉRITO - 2024</h3>
+                            <div class="music-year">2024</div>
+                            <p>Nosso Segundo EP oficial, contendo 7 faixas que demonstram nossa versatilidade e autenticidade. Um marco na nossa carreira.</p>
+                            <a href="#" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">OUVIR EP COMPLETO</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section class="section" id="social">
+        <div class="container">
+            <h2 class="section-title">CONECTE-SE CONNOSCO</h2>
+            <div class="social-links">
+                <div class="social-card">
+                    <div class="social-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <h3>YouTube</h3>
+                    <p>Assista aos nossos vídeos e clipes</p>
+                    <a href="https://www.youtube.com/@holdersofficial-HR" target="_blank" class="btn" style="margin-top: 10px; padding: 8px 20px; font-size: 14px;">ACESSAR</a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-icon facebook">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Siga-nos para atualizações</p>
+                    <a href="https://www.facebook.com/profile.php?id=61585894762841" target="_blank" class="btn" style="margin-top: 10px; padding: 8px 20px; font-size: 14px;">ACESSAR</a>
+                </div>
+                
+                <div class="social-card">
+                    <div class="social-icon tiktok">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <h3>TikTok</h3>
+                    <p>@Holdersoficial</p>
+                    <a href="#" class="btn" style="margin-top: 10px; padding: 8px 20px; font-size: 14px;">SEGUIR</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HOLDERS</h3>
+                    <p>Grupo musical angolano revolucionando o trap com autenticidade e versatilidade desde 2022.</p>
+                </div>
+                h2>Ouça: Heart (2025)</h2>
+<div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/TmXAtGevpX0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<h2>Ouça: Vices</h2>
+<div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/97ciEZ6Ng8o" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<h2>Ouça: Life Trap</h2>
+<div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/M29drHBe5nE" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<h2>Ouça: Processo</h2>
+<div class="video-container">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/wTxzF-vfLHw" frameborder="0" allowfullscreen></iframe>
+</div>
+                <div class="footer-section">
+                    <h3>CONTATO</h3>
+                    <p>Para shows e colaborações:</p>
+                    <p>📩Email: contact@holdersoficial.com</p>
+                    <p>📞+ 2 4 4 Contactos: 9 4 2 5 1 9 7 3 4</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>LINKS RÁPIDOS</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#home" style="color: var(--text-secondary); text-decoration: none;">Início</a></li>
+                        <li><a href="#members" style="color: var(--text-secondary); text-decoration: none;">Membros</a></li>
+                        <li><a href="#music" style="color: var(--text-secondary); text-decoration: none;">Música</a></li>
+                        <li><a href="#social" style="color: var(--text-secondary); text-decoration: none;">Redes Sociais</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 Holders. Todos os direitos reservados. | Site desenvolvido para o grupo Holders
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Tab switching functionality
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    nav.style.display = 'none';
+                }
+            });
+        });
+        
+        // Adjust nav display on window resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                nav.style.display = 'block';
+            } else {
+                nav.style.display = 'none';
+            }
+        });
+    </script>
 </body>
-</html>
+    </html>
+        
+
+    
